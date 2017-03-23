@@ -6,7 +6,7 @@ RUN apt-get -y update && apt-get install -y aptitude
 RUN aptitude install -y emacs-nox python-scikits-learn
 
 RUN rm -rf /notebooks
-WORKDIR "/home"
+WORKDIR "/workspace"
 
 COPY dot_emacs /root/.emacs
 
