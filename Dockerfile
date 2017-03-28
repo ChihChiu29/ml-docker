@@ -31,6 +31,7 @@ RUN pip install pytesseract
 RUN rm -rf /notebooks
 WORKDIR "/workspace"
 COPY dot_emacs /root/.emacs
+RUN jupyter nbextension enable --py widgetsnbextension
 
 
 # Default command.
