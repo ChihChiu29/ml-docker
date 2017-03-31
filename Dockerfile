@@ -29,6 +29,7 @@ RUN pip install pytesseract
 
 
 # Get Tensorflow examples.
+RUN mkdir /workspace
 RUN cd /workspace
 RUN git clone https://github.com/aymericdamien/TensorFlow-Examples.git
 
