@@ -27,11 +27,10 @@ RUN aptitude install -y tesseract-ocr libtesseract-dev libleptonica-dev
 RUN pip install pytesseract
 
 
-
 # Get Tensorflow examples.
-RUN mkdir /workspace
-RUN cd /workspace
-RUN git clone https://github.com/aymericdamien/TensorFlow-Examples.git
+ADD https://github.com/aymericdamien/TensorFlow-Examples/archive/master.zip /tmp
+RUN unzip -d /workspace/examples /tmp/master.zip
+RUN rm /tmp/master.zip
 
 
 # Config/Environment setup.
