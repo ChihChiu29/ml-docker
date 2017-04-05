@@ -33,6 +33,7 @@ RUN pip install spacy
 
 # Get Tensorflow examples.
 ADD https://github.com/aymericdamien/TensorFlow-Examples/archive/master.zip /tmp
+RUN mkdir -p /workspace/examples
 RUN unzip -d /workspace/examples /tmp/master.zip
 RUN rm /tmp/master.zip
 

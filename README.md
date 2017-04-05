@@ -8,6 +8,7 @@ The image is meant to be the all-in-one image for ML/DL. It contains commonly us
 ## ML/DL
 
 * numpy / scipy / sympy / pandas / matplotlib
+* Jupyter (with widget enabled)
 * TensorFlow
 * scikit
 * keras
@@ -19,3 +20,4 @@ The image is meant to be the all-in-one image for ML/DL. It contains commonly us
 * git
 * byobu
 * emacs (nox)
+* zip
