@@ -27,6 +27,10 @@ RUN aptitude install -y tesseract-ocr libtesseract-dev libleptonica-dev
 RUN pip install pytesseract
 
 
+# NLP
+RUN pip install spacy
+
+
 # Get Tensorflow examples.
 ADD https://github.com/aymericdamien/TensorFlow-Examples/archive/master.zip /tmp
 RUN unzip -d /workspace/examples /tmp/master.zip
