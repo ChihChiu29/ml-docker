@@ -19,5 +19,6 @@ The image is meant to be the all-in-one image for ML/DL. It contains commonly us
 
 * git
 * byobu
-* emacs (nox)
+* wget, curl
+* emacs (nox), ne, nano
 * zip
