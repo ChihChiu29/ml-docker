@@ -8,7 +8,7 @@ RUN apt-get -y update && apt-get install -y aptitude
 
 # System base.
 RUN aptitude install -y cmake libgtk2.0-dev pkg-config
-RUN aptitude install -y byobu wget
+RUN aptitude install -y byobu wget psmisc
 RUN aptitude install -y emacs-nox nano ne
 RUN aptitude install -y git git-completion
 
