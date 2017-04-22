@@ -44,6 +44,7 @@ RUN rm -rf /notebooks
 WORKDIR "/workspace"
 COPY dot_emacs /root/.emacs
 RUN jupyter nbextension enable --py widgetsnbextension
+RUN echo "PS1=\[\033[0;32m\]✔\[\033[0;0m\] \[\033[0;33m\]\w\[\033[0;0m\] [\[\033[0;35m\]${GIT_BRANCH}\[\033[0;0m\]|\[\033[1;32m\]✔\[\033[0;0m\]\[\033[0;0m\]] \n\[\033[0;37m\]$(date +%H:%M)\[\033[0;0m\] $" >> /root/.bashrc
 
 
 # Default command.
