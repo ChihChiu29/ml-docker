@@ -47,4 +47,4 @@ RUN jupyter nbextension enable --py widgetsnbextension
 
 
 # Default command.
-CMD ["/run_jupyter.sh"]
+CMD ["/run_jupyter.sh", "--allow-root"]
