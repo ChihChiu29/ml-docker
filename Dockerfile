@@ -34,6 +34,11 @@ RUN pip install pytesseract
 RUN pip install spacy
 
 
+# Apt clean up
+RUN apt-get -y clean
+RUN apt-get -y autoclean
+
+
 # Get Tensorflow examples.
 ADD https://github.com/aymericdamien/TensorFlow-Examples/archive/master.zip /tmp
 RUN mkdir -p /workspace/examples
