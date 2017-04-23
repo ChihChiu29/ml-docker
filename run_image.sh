@@ -41,5 +41,10 @@ then
     echo "------------------------------------------------------------"
     echo
 else
+    echo
+    echo "------------------------------------------------------------"
+    echo "Run server at port 8888 and access it at http://${machine_ip}:8888"
+    echo "------------------------------------------------------------"
+    echo 
     docker run -it -p 8888:8888 -v $(pwd)/external:/workspace/external chihchiu29/ml-swiss-army-knife "$@"
 fi
