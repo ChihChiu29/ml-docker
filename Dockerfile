@@ -12,6 +12,7 @@ RUN aptitude install -y cmake libgtk2.0-dev pkg-config
 RUN aptitude install -y byobu wget psmisc
 RUN aptitude install -y emacs-nox nano ne
 RUN aptitude install -y git git-completion
+RUN aptitude install -y openssh-server
 
 
 # Python Scientific libraries.
@@ -38,6 +39,16 @@ ADD https://github.com/aymericdamien/TensorFlow-Examples/archive/master.zip /tmp
 RUN mkdir -p /workspace/examples
 RUN unzip -d /workspace/examples /tmp/master.zip
 RUN rm /tmp/master.zip
+
+
+# Setup SSH Daemon
+RUN mkdir /var/run/sshd
+RUN echo 'root:screencast' | chpasswd
+RUN sed -i 's/PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
+RUN sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so@g' -i /etc/pam.d/sshd
+ENV NOTVISIBLE "in users profile"
+RUN echo "export VISIBLE=now" >> /etc/profile
+EXPOSE 22
 
 
 # Config/Environment setup.
