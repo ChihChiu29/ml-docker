@@ -4,6 +4,7 @@ MAINTAINER Chih Chiu <chih.chiu.19@gmail.com>
 
 # Update and get aptitude.
 RUN apt-get -y update && apt-get install -y aptitude
+RUN aptitude upgrade -y 
 
 
 # System base.
@@ -42,9 +43,9 @@ RUN rm /tmp/master.zip
 # Config/Environment setup.
 RUN rm -rf /notebooks
 WORKDIR "/workspace"
-COPY dot_emacs /root/.emacs
+COPY data/dot_bashrc /root/.bashrc
+COPY data/dot_emacs /root/.emacs
 RUN jupyter nbextension enable --py widgetsnbextension
-RUN echo "PS1=\[\033[0;32m\]✔\[\033[0;0m\] \[\033[0;33m\]\w\[\033[0;0m\] [\[\033[0;35m\]${GIT_BRANCH}\[\033[0;0m\]|\[\033[1;32m\]✔\[\033[0;0m\]\[\033[0;0m\]] \n\[\033[0;37m\]$(date +%H:%M)\[\033[0;0m\] $" >> /root/.bashrc
 
 
 # Default command.
