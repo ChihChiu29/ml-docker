@@ -34,6 +34,10 @@ RUN pip install pytesseract
 RUN pip install spacy
 
 
+# Web scraping
+RUN pip install scrapy
+
+
 # Apt clean up
 RUN apt-get -y clean
 RUN apt-get -y autoclean
