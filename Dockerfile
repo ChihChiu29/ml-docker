@@ -35,7 +35,7 @@ RUN pip install spacy
 
 
 # Web scraping
-RUN pip install scrapy
+RUN aptitude install -y python-scrapy
 
 
 # Apt clean up
