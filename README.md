@@ -18,8 +18,12 @@ The image is meant to be the all-in-one image for ML/DL. It contains commonly us
 * TensorFlow
 * scikit
 * keras
+
+## Data processing tools
+
 * OpenCV, tesseract
 * spacy
+* scrapy
 
 ## Engineering tools
 
