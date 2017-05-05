@@ -43,6 +43,15 @@ RUN apt-get -y clean
 RUN apt-get -y autoclean
 
 
+# Bazel
+RUN echo "deb [arch=amd64] http://storage.googleapis.com/bazel-apt stable jdk1.8" | tee /etc/apt/sources.list.d/bazel.list \
+    && curl https://bazel.build/bazel-release.pub.gpg | apt-key add -
+
+RUN apt-get update \
+    && apt-get install -y bazel \
+    && rm -rf /var/lib/apt/lists/*
+
+
 # Get Tensorflow examples.
 ADD https://github.com/aymericdamien/TensorFlow-Examples/archive/master.zip /tmp
 RUN mkdir -p /workspace/examples

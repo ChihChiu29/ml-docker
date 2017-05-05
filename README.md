@@ -28,6 +28,7 @@ The image is meant to be the all-in-one image for ML/DL. It contains commonly us
 ## Engineering tools
 
 * git
+* bazel
 * sshd
 * byobu
 * wget, curl
