@@ -38,9 +38,8 @@ RUN pip install spacy
 RUN aptitude install -y python-scrapy
 
 
-# Apt clean up
-RUN apt-get -y clean
-RUN apt-get -y autoclean
+# Java
+RUN aptitude install -y default-jdk
 
 
 # Bazel
@@ -50,6 +49,11 @@ RUN echo "deb [arch=amd64] http://storage.googleapis.com/bazel-apt stable jdk1.8
 RUN apt-get update \
     && apt-get install -y bazel \
     && rm -rf /var/lib/apt/lists/*
+
+
+# Apt clean up
+RUN apt-get -y clean
+RUN apt-get -y autoclean
 
 
 # Get Tensorflow examples.
