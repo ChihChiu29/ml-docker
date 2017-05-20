@@ -5,7 +5,10 @@ The image is meant to be the all-in-one image for ML/DL. It contains commonly us
 
 # Quickstart
 
-* To start the docker image, use `run_image.sh`.
+* To start the docker image, use `run_image.sh`. It support the following running modes:
+  - With no subcommand. This will start Jupyter.
+  - With subcommand "sshd". This will start the container as a ssdh server.
+  - With other subcommand. The subcommand will be executed in the container.
 * To update the `chihchiu29/ml-swiss-army-knife` image, use `update_image.sh`.
 * The `external` folder is mapped to `/workspace/external` in the container.
 
@@ -30,7 +33,7 @@ The image is meant to be the all-in-one image for ML/DL. It contains commonly us
 * jdk
 * bazel
 * git
-* sshd (port 9000, root:toor)
+* sshd
 * byobu
 * wget, curl
 * emacs (nox), ne, nano
