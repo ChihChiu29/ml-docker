@@ -25,12 +25,12 @@ The image is meant to be the all-in-one image for ML/DL. It contains commonly us
 * spacy
 * scrapy
 
-## Engineering tools
+## System tools
 
 * jdk
 * bazel
 * git
-* sshd
+* sshd (port 9000, root:toor)
 * byobu
 * wget, curl
 * emacs (nox), ne, nano
