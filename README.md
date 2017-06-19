@@ -38,3 +38,13 @@ The image is meant to be the all-in-one image for ML/DL. It contains commonly us
 * wget, curl
 * emacs (nox), ne, nano
 * zip
+
+# Trouble Shooting
+
+* No space left on device error (during running `update_image.sh`)
+Try:
+```
+docker rm $(docker ps -q -f 'status=exited')
+docker rmi $(docker images -q -f "dangling=true")
+```
+Then update again.
