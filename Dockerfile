@@ -27,6 +27,7 @@ RUN pip install keras
 # OCR/Opencv
 RUN aptitude install -y libavcodec-dev libavformat-dev libswscale-dev
 RUN aptitude install -y tesseract-ocr libtesseract-dev libleptonica-dev
+RUN aptitude install -y libopencv-dev python-opencv
 RUN pip install pytesseract
 
 
