@@ -39,8 +39,8 @@ RUN pip install spacy
 RUN aptitude install -y python-scrapy
 
 
-# Java
-RUN aptitude install -y default-jdk
+# Misc
+RUN aptitude install graphviz libgraphviz-dev
 
 
 # Bazel
