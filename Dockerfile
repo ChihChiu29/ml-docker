@@ -40,7 +40,7 @@ RUN aptitude install -y python-scrapy
 
 
 # Misc
-RUN aptitude install graphviz libgraphviz-dev
+RUN aptitude install -y graphviz libgraphviz-dev
 
 
 # Bazel
