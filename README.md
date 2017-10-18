@@ -22,15 +22,15 @@ The image is meant to be the all-in-one image for ML/DL. It contains commonly us
 * scikit
 * keras
 
-## Data processing tools
+## Data processing / visualization tools
 
 * OpenCV, tesseract
 * spacy
 * scrapy
+* graphviz
 
 ## System tools
 
-* jdk
 * bazel
 * git
 * sshd
