@@ -22,10 +22,10 @@ The image is meant to be the all-in-one image for ML/DL. It contains commonly us
 * scikit
 * keras
 
-## Data processing / visualization tools
+## Image processing / NLP / Visualization tools
 
-* OpenCV, tesseract
-* spacy
+* OpenCV, tesseract, skimage
+* nltk, spacy, mahotas
 * scrapy
 * graphviz
 

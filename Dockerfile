@@ -24,19 +24,21 @@ RUN aptitude install -y python-scikits-learn
 RUN pip install keras
 
 
-# OCR/Opencv
+# Image processing
 RUN aptitude install -y libavcodec-dev libavformat-dev libswscale-dev
 RUN aptitude install -y tesseract-ocr libtesseract-dev libleptonica-dev
 RUN aptitude install -y libopencv-dev python-opencv
-RUN pip install pytesseract
+RUN aptitude install -y python-skimage
+RUN pip install pytesseract mahotas
 
 
 # NLP
-RUN pip install spacy
+RUN aptitude install -y python-nltk
+RUN pip install spacy nltk
 
 
 # Web scraping
-RUN aptitude install -y python-scrapy
+RUN aptitude install -y python-scrapy python-beautifulsoup
 
 
 # Misc
