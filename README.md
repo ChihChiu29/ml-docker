@@ -27,7 +27,7 @@ The image is meant to be the all-in-one image for ML/DL. It contains commonly us
 * OpenCV, tesseract, skimage
 * nltk, spacy, mahotas
 * scrapy
-* graphviz
+* graphviz, bokeh
 
 ## System tools
 
