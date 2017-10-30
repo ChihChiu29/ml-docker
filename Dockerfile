@@ -42,8 +42,8 @@ RUN aptitude install -y python-scrapy python-beautifulsoup
 
 
 # Misc
-RUN aptitude install -y graphviz libgraphviz-dev python-pygraphviz
-RUN pip install bokeh
+RUN aptitude install -y graphviz libgraphviz-dev
+RUN pip install bokeh graphviz
 
 
 # Apt clean up
