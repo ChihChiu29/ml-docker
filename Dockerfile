@@ -34,7 +34,6 @@ RUN pip install pytesseract mahotas scikit-image
 
 # Text Processing
 RUN pip install spacy nltk
-RUN pip install scrapy beautifulsoup
 
 
 # Others
