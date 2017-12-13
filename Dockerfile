@@ -34,10 +34,11 @@ RUN pip install pytesseract mahotas scikit-image
 
 # Text Processing
 RUN pip install spacy nltk
+RUN pip install scrapy beautifulsoup
 
 
-# Web scraping
-RUN aptitude install -y python-scrapy python-beautifulsoup
+# Others
+RUN pip install retrying joblib absl-py jsonpickle
 
 
 # Chrome and Selenium WebDriver
