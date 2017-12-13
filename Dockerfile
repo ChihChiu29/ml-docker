@@ -1,4 +1,4 @@
-FROM tensorflow/tensorflow:latest
+FROM tensorflow/tensorflow:latest-py3
 
 MAINTAINER Chih Chiu <chih.chiu.19@gmail.com>
 
@@ -10,30 +10,29 @@ RUN aptitude upgrade -y
 # System base.
 RUN aptitude install -y cmake libgtk2.0-dev pkg-config
 RUN aptitude install -y byobu wget psmisc
-RUN aptitude install -y emacs-nox nano ne
+RUN aptitude install -y emacs-nox nano
 RUN aptitude install -y git git-completion
-RUN aptitude install -y openssh-server
+RUN ln -s `which pip3` /usr/local/bin/pip
+RUN pip install --upgrade pip
 
 
 # Python Scientific libraries.
-RUN aptitude install -y python-dev python-pip python-numpy python-scipy python-matplotlib python-sympy
+RUN pip install numpy scipy matplotlib sympy pandas
+RUN pip install jupyter
 
 
 # ML/DL libraries.
-RUN aptitude install -y python-scikits-learn
-RUN pip install keras
+RUN pip install scikit-learn keras
 
 
 # Image processing
 RUN aptitude install -y libavcodec-dev libavformat-dev libswscale-dev
 RUN aptitude install -y tesseract-ocr libtesseract-dev libleptonica-dev
 RUN aptitude install -y libopencv-dev python-opencv
-RUN aptitude install -y python-skimage
-RUN pip install pytesseract mahotas
+RUN pip install pytesseract mahotas skimage
 
 
-# NLP
-RUN aptitude install -y python-nltk
+# Text Processing
 RUN pip install spacy nltk
 
 
@@ -41,24 +40,26 @@ RUN pip install spacy nltk
 RUN aptitude install -y python-scrapy python-beautifulsoup
 
 
+# Chrome and Selenium WebDriver
+RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -
+RUN echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list
+RUN apt-get -y update && apt-get install -y google-chrome-stable
+
+RUN wget -q --continue -P ~/ "http://chromedriver.storage.googleapis.com/$(curl -sS chromedriver.storage.googleapis.com/LATEST_RELEASE)/chromedriver_linux64.zip"
+RUN unzip ~/chromedriver_linux64.zip -d /usr/local/bin
+RUN rm ~/chromedriver_linux64.zip
+
+RUN pip install selenium
+
+
 # Misc
 RUN aptitude install -y graphviz libgraphviz-dev
-RUN pip install bokeh graphviz
+RUN pip install graphviz ipywidgets
 
 
 # Apt clean up
 RUN apt-get -y clean
 RUN apt-get -y autoclean
-
-
-# Setup SSH Daemon
-RUN mkdir /var/run/sshd
-RUN echo 'root:toor' | chpasswd
-RUN sed -i 's/PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
-RUN sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so@g' -i /etc/pam.d/sshd
-ENV NOTVISIBLE "in users profile"
-RUN echo "export VISIBLE=now" >> /etc/profile
-EXPOSE 22
 
 
 # Config/Environment setup.
