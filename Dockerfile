@@ -12,7 +12,7 @@ RUN aptitude install -y cmake libgtk2.0-dev pkg-config
 RUN aptitude install -y byobu wget psmisc
 RUN aptitude install -y emacs-nox nano
 RUN aptitude install -y git git-completion
-RUN ln -s `which pip3` /usr/local/bin/pip
+RUN rm /usr/local/bin/pip && ln -s `which pip3` /usr/local/bin/pip
 RUN pip install --upgrade pip
 
 
@@ -29,7 +29,7 @@ RUN pip install scikit-learn keras
 RUN aptitude install -y libavcodec-dev libavformat-dev libswscale-dev
 RUN aptitude install -y tesseract-ocr libtesseract-dev libleptonica-dev
 RUN aptitude install -y libopencv-dev python-opencv
-RUN pip install pytesseract mahotas skimage
+RUN pip install pytesseract mahotas scikit-image
 
 
 # Text Processing
